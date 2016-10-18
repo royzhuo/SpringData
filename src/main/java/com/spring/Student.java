@@ -21,6 +21,18 @@ public class Student {
     private String name;
     private String email;
     private Date birth;
+    private String address;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", email='" + email + '\'' +
+            ", birth=" + birth +
+            ", address='" + address + '\'' +
+            '}';
+    }
 
     public Student() {
     }
@@ -31,14 +43,12 @@ public class Student {
         this.birth = birth;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            ", email='" + email + '\'' +
-            ", birth=" + birth +
-            '}';
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {

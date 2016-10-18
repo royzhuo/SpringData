@@ -52,7 +52,7 @@
     </bean>
     <!--配置事物注解-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-    <!--配置springData   base-packag:repositories bean所在的包-->
+    <!--配置springData   base-packag: 扫描repositories bean所在的包-->
     <!--配置jpa命名空间-->
     <jpa:repositories base-package="com.spring"
                       entity-manager-factory-ref="entityManagerFactory"></jpa:repositories>

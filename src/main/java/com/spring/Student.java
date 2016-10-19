@@ -23,6 +23,15 @@ public class Student {
     private Date birth;
     private String address;
 
+    public Student() {
+    }
+
+    public Student(String name, String email, Date birth) {
+        this.name = name;
+        this.email = email;
+        this.birth = birth;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -32,15 +41,6 @@ public class Student {
             ", birth=" + birth +
             ", address='" + address + '\'' +
             '}';
-    }
-
-    public Student() {
-    }
-
-    public Student(String name, String email, Date birth) {
-        this.name = name;
-        this.email = email;
-        this.birth = birth;
     }
 
     public String getAddress() {

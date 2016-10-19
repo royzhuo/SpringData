@@ -1,8 +1,9 @@
 package com.spring;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -17,8 +18,13 @@ import java.util.List;
 * 4.@RepositoryDefinition(domainClass = Student.class, idClass = Integer.class)可以通过这个注解来注入Repository对象
 *
 * */
-@RepositoryDefinition(domainClass = Student.class, idClass = Integer.class)
-public interface StudentRepository /*extends Repository<Student, Integer>*/ {
+//@RepositoryDefinition(domainClass = Student.class, idClass = Integer.class)
+//public interface StudentRepository extends Repository<Student, Integer> {
+//public interface StudentRepository extends CrudRepository<Student, Integer> { //Repository 子接口
+//public interface StudentRepository extends PagingAndSortingRepository<Student, Integer> { //CrudRepository 子接口
+public interface StudentRepository extends
+    JpaRepository<Student, Integer>,
+    JpaSpecificationExecutor<Student>, StudentDao { //不在是继承Repository
 
     Student getStudentByName(String name);
 
@@ -46,4 +52,6 @@ public interface StudentRepository /*extends Repository<Student, Integer>*/ {
     @Modifying
     @Query("update Student set email=:email where id=:id")
     void upateStudentByJPQL(@Param("id") Integer id, @Param("email") String email);
+
+
 }
